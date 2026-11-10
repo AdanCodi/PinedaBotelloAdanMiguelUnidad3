@@ -187,6 +187,13 @@ function dinero($cantidad) {
             Movimiento registrado correctamente.
         </div>
     <?php endif; ?>
+    
+    <?php if (isset($_GET['editado'])): ?>
+        <div class="alert alert-success">
+            Movimiento actualizado correctamente.
+        </div>
+    <?php endif; ?>
+
 
     <?php if (isset($_GET['eliminado'])): ?>
         <div class="alert alert-success">
@@ -316,6 +323,11 @@ function dinero($cantidad) {
                                         </td>
                                         <td>
                                             <div class="d-flex gap-2">
+                                                <a href="app/movimientos/editar.php?id=<?= (int)$m['id'] ?>"
+                                                class="btn btn-sm btn-outline-primary">
+                                                    Editar
+                                                </a>
+
                                                 <form
                                                     action="app/movimientos/eliminar.php"
                                                     method="POST"
