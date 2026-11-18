@@ -1,11 +1,11 @@
 
 <?php
 
-$host = "localhost";
+$host = "sql202.infinityfree.com";
 $puerto = "3306";
-$nombreBD = "micontrol_financiero";
-$usuario = "root";
-$contrasena = "";
+$nombreBD = "if0_43391188_micontrol_financiero";
+$usuario = "if0_43391188";
+$contrasena = "t4WZpN6o0ezgNS";
 
 try {
     $conexion = new PDO(
