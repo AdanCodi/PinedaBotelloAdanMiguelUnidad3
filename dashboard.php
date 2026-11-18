@@ -169,10 +169,18 @@ function dinero($cantidad) {
         <span class="navbar-brand">
             MiControl Financiero
         </span>
-        <a href="app/auth/logout.php"
-           class="btn btn-outline-light btn-sm">
-            Cerrar sesión
-        </a>
+
+        <form action="app/auth/logout.php" method="POST">
+            <input type="hidden"
+                name="csrf_token"
+                value="<?= escapar($_SESSION['csrf_token']) ?>">
+
+            <button type="submit"
+                    class="btn btn-outline-light btn-sm">
+                Cerrar sesión
+            </button>
+        </form>
+
     </div>
 </nav>
 
