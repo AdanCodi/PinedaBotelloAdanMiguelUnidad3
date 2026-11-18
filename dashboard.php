@@ -377,6 +377,29 @@ function dinero($cantidad) {
             </div>
         </div>
     </div>
+
+<section class="card shadow-sm mt-4">
+    <div class="card-body">
+        <h5>Consulta de API propia</h5>
+
+        <p class="text-muted">
+            Obtener información financiera desde
+            nuestro Web Service REST.
+        </p>
+
+        <button
+            type="button"
+            class="btn btn-outline-success"
+            id="consultarApi">
+            Consultar resumen financiero
+        </button>
+
+        <pre id="resultadoApi"
+             class="bg-light border rounded p-3 mt-3"
+             style="white-space:pre-wrap;"></pre>
+    </div>
+</section>
+
 </main>
 
 <script>
@@ -404,6 +427,49 @@ function actualizarCategorias() {
 
 tipo.addEventListener('change', actualizarCategorias);
 actualizarCategorias();
+</script>
+
+<script>
+document.getElementById('consultarApi')
+    .addEventListener('click', async function () {
+
+        const resultado = document.getElementById(
+            'resultadoApi'
+        );
+
+        resultado.textContent = 'Consultando API...';
+
+        try {
+            const respuesta = await fetch(
+                'api/resumen.php',
+                {
+                    method: 'GET',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }
+            );
+
+            const datos = await respuesta.json();
+
+            if (!respuesta.ok || !datos.success) {
+                throw new Error(
+                    datos.message || 'Error al consultar la API.'
+                );
+            }
+
+            resultado.textContent = JSON.stringify(
+                datos,
+                null,
+                2
+            );
+
+        } catch (error) {
+            resultado.textContent =
+                'Error: ' + error.message;
+        }
+    });
 </script>
 
 </body>
