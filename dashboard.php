@@ -178,6 +178,12 @@ function dinero($cantidad) {
 
 <main class="container py-4">
     <h2>Bienvenido, <?= escapar($nombre) ?></h2>
+    <div class="mb-3">
+        <a href="app/metas/index.php"
+        class="btn btn-outline-success">
+            Mis metas de ahorro
+        </a>
+    </div>
     <p class="text-muted">
         Administra tus finanzas personales.
     </p>
