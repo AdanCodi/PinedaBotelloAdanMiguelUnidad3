@@ -184,6 +184,11 @@ function dinero($cantidad) {
             Mis metas de ahorro
         </a>
 
+        <a href="tipo_cambio.php"
+        class="btn btn-outline-success">
+            Conversor de divisas
+        </a>
+
         <a href="reportes.php"
         class="btn btn-outline-primary">
             Reportes financieros
