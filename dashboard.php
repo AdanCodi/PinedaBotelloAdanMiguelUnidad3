@@ -183,6 +183,12 @@ function dinero($cantidad) {
         class="btn btn-outline-success">
             Mis metas de ahorro
         </a>
+
+        <a href="reportes.php"
+        class="btn btn-outline-primary">
+            Reportes financieros
+        </a>
+
     </div>
     <p class="text-muted">
         Administra tus finanzas personales.
